@@ -4,6 +4,9 @@ info:
   version: "1.0"
   description: API for manipulating OTIO timelines and Fusion macros for Resolve.
 
+servers:
+  - url: https://example.com/api
+
 paths:
   /otio/export:
     post:
