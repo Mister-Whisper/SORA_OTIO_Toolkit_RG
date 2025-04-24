@@ -3,8 +3,7 @@ info:
   title: SORA OTIO Toolkit API
   version: "1.0"
   description: API for manipulating OTIO timelines and Fusion macros for Resolve.
-servers:
-  - url: http://localhost:5000
+
 paths:
   /otio/export:
     post:
@@ -16,6 +15,9 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - input_path
+                - output_path
               properties:
                 input_path:
                   type: string
@@ -42,6 +44,9 @@ paths:
           application/json:
             schema:
               type: object
+              required:
+                - input_clip
+                - fade_style
               properties:
                 input_clip:
                   type: string
