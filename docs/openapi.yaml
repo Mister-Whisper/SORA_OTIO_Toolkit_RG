@@ -1,0 +1,52 @@
+openapi: 3.0.1
+info:
+  title: SORA OTIO Toolkit API
+  version: "1.0"
+  description: API for manipulating OTIO timelines and Fusion macros for Resolve.
+servers:
+  - url: http://localhost:5000
+paths:
+  /otio/export:
+    post:
+      summary: Export an OTIO timeline from Resolve or metadata
+      operationId: exportOtio
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                input_path:
+                  type: string
+                output_path:
+                  type: string
+      responses:
+        '200':
+          description: Export success
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+
+  /fusion/fade:
+    post:
+      summary: Apply an X-domain fade macro to a Fusion comp
+      operationId: applyFadeMacro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                input_clip:
+                  type: string
+                fade_style:
+                  type: string
+      responses:
+        '200':
+          description: Fade applied
